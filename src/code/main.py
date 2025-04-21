@@ -1,5 +1,8 @@
+from os import environ
+environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame as pg
 import sys
+from time import sleep
 print("py_bytefall by Nic Gunter")
 source = input("Input file (including full path): ")
 with open(source, "rb") as s:
@@ -28,15 +31,27 @@ for i in bytelist:
     colbytes.append(colref[int(i,16)])
 print(colbytes) # debug
 pg.init()
+def rain():
+    y = 0
+    x = 0
+    for i in range(len(colbytes)):
+        if x == GRID_SIZE:
+            y += bsize
+            x = 0
+        if y == GRID_SIZE:
+            pass # implement scrolling here
+        pg.draw.rect(screen, colbytes[i], (x*bsize,y,bsize,bsize))
+        pg.display.flip()
+        sleep(0.005)
+        x += 1
 clock = pg.time.Clock()
 SIZE = 640
-bsize = 10
+bsize = 16
 GRID_SIZE = SIZE // bsize
 screen = pg.display.set_mode((SIZE, SIZE))
 screen.fill((255,255,255))
+rain()
 while True:
-    pg.display.flip()
-    clock.tick(60)
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit()
