@@ -1,4 +1,3 @@
-from threading import Thread
 import pygame as pg
 import sys
 from time import sleep
@@ -53,6 +52,10 @@ def rain():
         pg.draw.rect(screen, colbytes[hi], (x * bsize, y, bsize, bsize))
         rectlist.append([x * bsize, y, colbytes[hi]])
         x += 1
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                pg.quit()
+                sys.exit()
 rectlist =[]
 tuplist = []
 SIZE = 640
@@ -60,13 +63,10 @@ scrol = 640
 bsize = 16
 y = 0
 x = 0
-delay = 1
+delay = 0.5
 GRID_SIZE = SIZE // bsize
 screen = pg.display.set_mode((SIZE, SIZE))
 screen.fill((255,255,255))
-Thread(target=rain).start()
-while True:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            pg.quit()
-            sys.exit()
+bytelist.clear()
+colref.clear()
+rain()
