@@ -3,7 +3,8 @@ import sys
 from time import sleep
 print("py_bytefall by Nic Gunter")
 source = input("Input file (including full path): ")
-delay = int(input("Delay between lines of rain (ms, higher values = slower):"))
+delay = int(input("Delay between lines of rain (ms, higher values = slower): "))
+bsize = int(input("What size should the grid be? "))
 with open(source, "rb") as s:
     data = s.read()
     hbytes = data.hex()
@@ -61,13 +62,14 @@ rectlist =[]
 tuplist = []
 SIZE = 640
 scrol = 640
-bsize = 16
 y = 0
 x = 0
-delay = 0.5
 GRID_SIZE = SIZE // bsize
 screen = pg.display.set_mode((SIZE, SIZE))
 screen.fill((255,255,255))
 bytelist.clear()
 colref.clear()
 rain()
+input("Done. Press ENTER to exit.")
+pg.quit()
+sys.exit()
