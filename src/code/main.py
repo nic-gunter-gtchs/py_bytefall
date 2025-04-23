@@ -3,6 +3,7 @@ import sys
 from time import sleep
 print("py_bytefall by Nic Gunter")
 source = input("Input file (including full path): ")
+delay = int(input("Delay between lines of rain (ms, higher values = slower):"))
 with open(source, "rb") as s:
     data = s.read()
     hbytes = data.hex()
