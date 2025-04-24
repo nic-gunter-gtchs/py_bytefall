@@ -1,5 +1,6 @@
-# THIS IS NOT FUNCTIONAL YET, HOWEVER HERE LIES THE README FOR THE FINAL VERSION
+# STILL IN DEVELOPMENT, EXPECT BUGS  
 # py_bytefall
 Data visualization program similar to "binary waterfall" but written in Python and does not accurately represent bytes. It instead has a predefined color for each hex byte  
 ## to use
-grab a file from Releases and run using "py_bytefall.[sh/exe] [file name]"
+clone the repo and run using "python main.py"
+to configure use bytefall.conf located in src/assets/
