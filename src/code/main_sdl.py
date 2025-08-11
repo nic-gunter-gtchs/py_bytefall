@@ -54,7 +54,7 @@ for color in colbytes:
     renderer.draw_color = (color[0], color[1], color[2], 1)
     renderer.fill_rect([px, y, bsize, bsize])
     rectlist.append((px, y, color))
-    x += bsize
+    x += 1
 input("Done. Press ENTER to exit.")
 pg.quit()
 sys.exit()
