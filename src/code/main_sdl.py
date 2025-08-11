@@ -2,7 +2,6 @@ import pygame as pg
 from pygame._sdl2 import Renderer, Window
 import sys
 from collections import deque
-import cupy as cp
 print("py_bytefall by Nic Gunter")
 source = input("Input file (including full path): ")
 delay = float(input("Delay between lines of rain (ms, higher values = slower): "))
